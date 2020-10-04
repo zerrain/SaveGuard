@@ -1,18 +1,21 @@
-package com.zkthesis.saveguard;
+package com.zkthesis.saveguard.Activities;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.zkthesis.saveguard.Fragments.NotesFragment;
+import com.zkthesis.saveguard.Fragments.ProfileFragment;
+import com.zkthesis.saveguard.Fragments.ShiftsFragment;
+import com.zkthesis.saveguard.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,9 +34,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        FirebaseAuth mAuth; mAuth = FirebaseAuth.getInstance();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
         mainToolbar.setTitle("Shifts");
+
+        Toast.makeText(this, mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
 
         getSupportFragmentManager().beginTransaction().add(R.id.fragmentContainer, new ShiftsFragment()).commit();
     }

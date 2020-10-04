@@ -1,13 +1,13 @@
-package com.zkthesis.saveguard;
+package com.zkthesis.saveguard.Fragments;
 
 import android.os.Bundle;
-
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
+
+import com.zkthesis.saveguard.R;
 
 public class ShiftsFragment extends Fragment {
 

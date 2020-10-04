@@ -2,67 +2,44 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/loginLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".Activities.LoginActivity">
+    tools:context=".Activities.CreateAccountActivity">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/loginEmailTIL"
+        android:id="@+id/createEmailInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/loginEmailET"
+            android:id="@+id/createAccEmailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints="email"
-            android:drawableStart="@drawable/ic_email"
             android:hint="E-mail"
             android:inputType="textEmailAddress" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/loginPasswordTIL"
+        android:id="@+id/createPwdInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:passwordToggleEnabled="true">
 
         <EditText
-            android:id="@+id/loginPasswordET"
+            android:id="@+id/createAccPwdEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints="password"
-            android:drawableStart="@drawable/ic_lock"
             android:hint="Password"
             android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/loginBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login In" />
-
-    <Button
         android:id="@+id/createAccBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Create Account" />
-
-    <Button
-        android:id="@+id/resetPwdBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Reset Password" />
-
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/googleSignInButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
 </LinearLayout>

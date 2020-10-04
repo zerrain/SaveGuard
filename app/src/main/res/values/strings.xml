@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">SaveGuard</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="web_client_id">65473870102-tcige9l8tdvnkchcjoba9cfd1sjm8ki6.apps.googleusercontent.com</string>
 </resources>

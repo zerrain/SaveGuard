@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.zkthesis.saveguard.ProfileFragment"
+        android:name="com.zkthesis.saveguard.Fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/notesFragment"
-        android:name="com.zkthesis.saveguard.NotesFragment"
+        android:name="com.zkthesis.saveguard.Fragments.NotesFragment"
         android:label="fragment_notes"
         tools:layout="@layout/fragment_notes" />
     <fragment
         android:id="@+id/shiftsFragment"
-        android:name="com.zkthesis.saveguard.ShiftsFragment"
+        android:name="com.zkthesis.saveguard.Fragments.ShiftsFragment"
         android:label="fragment_shifts"
         tools:layout="@layout/fragment_shifts" />
 </navigation>
