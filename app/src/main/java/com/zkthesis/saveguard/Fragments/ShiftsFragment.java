@@ -26,5 +26,6 @@ public class ShiftsFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_shifts, container, false);
         //Toolbar toolbar = (Toolbar) v.findViewById()
         return v;
+        //test
     }
 }
