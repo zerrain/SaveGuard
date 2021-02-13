@@ -86,10 +86,12 @@ public class SetupAccountActivity extends AppCompatActivity {
 
         if (requestCode == GALLERY_REQUEST) {
             try {
-                imageUri = data.getData();
-                InputStream inputStream = getContentResolver().openInputStream(imageUri);
-                Bitmap selectedImage = BitmapFactory.decodeStream(inputStream);
-                licenceUploadPreviewIV.setImageBitmap(selectedImage);
+                if (data != null) {
+                    imageUri = data.getData();
+                    InputStream inputStream = getContentResolver().openInputStream(imageUri);
+                    Bitmap selectedImage = BitmapFactory.decodeStream(inputStream);
+                    licenceUploadPreviewIV.setImageBitmap(selectedImage);
+                }
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
                 Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
