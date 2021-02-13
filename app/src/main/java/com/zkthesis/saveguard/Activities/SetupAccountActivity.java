@@ -52,7 +52,6 @@ public class SetupAccountActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
 
     private static final int GALLERY_REQUEST = 1;
-    private static final int CAMERA_REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +75,7 @@ public class SetupAccountActivity extends AppCompatActivity {
         super.onBackPressed();
 
         FirebaseAuth.getInstance().signOut();
-        Toast.makeText(this, "signed out", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Logged Out", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this, LoginActivity.class));
         finish();
     }
@@ -116,6 +115,7 @@ public class SetupAccountActivity extends AppCompatActivity {
             reference.child("Profile").child("fullName").setValue(fullName);
             reference.child("Profile").child("mobileNO").setValue(mobileNO);
             reference.child("Profile").child("setupCompleted").setValue(true);
+            reference.child("Profile").child("currentShift").setValue("noshift");
             uploadLicenceImage();
 
             Toast.makeText(this, "Setup Complete!", Toast.LENGTH_SHORT).show();

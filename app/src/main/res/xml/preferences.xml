@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:id="@+id/profileDetailsPreferenceCategory"
+        android:key="profileDetailsPreferenceCategory"
+        android:title="Your Information">
+
+        <Preference
+            android:id="@+id/profileDetailsPreference"
+            android:key="profileDetailsPreference"
+            android:selectable="false"
+            android:persistent="false" />
+
+        <Preference
+            android:id="@+id/viewLicencePreference"
+            android:key="viewLicencePreference"
+            android:title="View Stored Licence"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/profileSettingsPreferenceCategory"
+        android:key="profileSettingsPreferenceCategory"
+        android:title="Preferences">
+
+        <Preference
+            android:id="@+id/changeLicencePreference"
+            android:key="changeLicencePreference"
+            android:title="Change Stored Licence"/>
+
+        <Preference
+            android:id="@+id/changeNamePreference"
+            android:key="changeNamePreference"
+            android:title="Change Name"/>
+
+        <Preference
+            android:id="@+id/changeMobileNOPreference"
+            android:key="changeMobileNOPreference"
+            android:title="Change Mobile NO"/>
+
+        <Preference
+            android:id="@+id/aboutPreference"
+            android:key="aboutPreference"
+            android:title="About" />
+
+        <Preference
+            android:id="@+id/logOutPreference"
+            android:key="logOutPreference"
+            android:title="Log Out" />
+
+    </PreferenceCategory>
+</PreferenceScreen>

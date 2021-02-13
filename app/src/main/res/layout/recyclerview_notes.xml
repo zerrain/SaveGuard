@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="15dp">
+
+    <TextView
+        android:id="@+id/noteTitleRVTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="note title"
+        android:textSize="26sp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/noteTextRVTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="note text"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:textSize="18sp"
+        android:layout_marginBottom="3dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            android:id="@+id/notetimeAddedRVTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="note time added"
+            android:layout_marginEnd="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:layout_marginEnd="10dp"/>
+
+        <TextView
+            android:id="@+id/notedateAddedRVTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="note date added"/>
+
+    </LinearLayout>
+
+</LinearLayout>

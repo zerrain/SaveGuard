@@ -8,12 +8,27 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="bottomNavigationStyle">@style/BottomNavigationViewStyle</item>
+        <item name="android:alertDialogTheme">@style/AlertDialogTheme</item>
     </style>
 
     <style name="BottomNavigationViewStyle" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
         <item name="android:background">@color/colorPrimaryDark</item>
         <item name="itemTextColor">@color/bottom_nav_item_color</item>
         <item name="itemIconTint">@color/bottom_nav_item_color</item>
+    </style>
+
+    <style name="AlertDialogTheme" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="android:buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="NegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">#aaa</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">#aaa</item>
     </style>
 
 </resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.CreateShiftActivity"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/shiftLocationET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Location" />
+
+    <EditText
+        android:id="@+id/shiftStartTimeET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusableInTouchMode="false"
+        android:hint="Start Time" />
+
+    <EditText
+        android:id="@+id/shiftFinishTimeET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusableInTouchMode="false"
+        android:hint="Finish Time" />
+
+    <EditText
+        android:id="@+id/shiftDateET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusableInTouchMode="false"
+        android:hint="Date of Shift" />
+
+    <Button
+        android:id="@+id/createShiftBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Shift" />
+
+</LinearLayout>

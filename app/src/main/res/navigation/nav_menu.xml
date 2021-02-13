@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.zkthesis.saveguard.Fragments.ProfileFragment"
+        android:name="com.zkthesis.saveguard.Fragments.SettingsFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/notesFragment"
         android:name="com.zkthesis.saveguard.Fragments.NotesFragment"

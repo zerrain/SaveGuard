@@ -57,11 +57,11 @@ public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
-    private FirebaseUser user;
+    protected FirebaseUser user;
     private FirebaseDatabase database;
     private DatabaseReference reference;
     private GoogleSignInClient signInClient;
-    private ProgressDialog progressDialog;
+    protected ProgressDialog progressDialog;
 
     private static final String TAG = "LoginActivity";
     private static final int RC_SIGN_IN = 1;
@@ -128,7 +128,6 @@ public class LoginActivity extends AppCompatActivity {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
-                Toast.makeText(this, "Google sign in success", Toast.LENGTH_SHORT).show();
                 firebaseAuthWithGoogle(account);
             } catch (ApiException e) {
                 Log.w(TAG, "Google sign in failed", e);
@@ -149,12 +148,11 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = firebaseAuth.getCurrentUser();
                             Log.d(TAG, "signInWithCredential:success: currentUser: " + user.getEmail());
-                            Toast.makeText(LoginActivity.this, "Firebase Authentication Succeeded", Toast.LENGTH_SHORT).show();
-                            launchMainActivity();
+                            setupCompletedCheck();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Firebase Authentication failed: " + task.getException(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Sign In failed: " + task.getException(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -184,7 +182,7 @@ public class LoginActivity extends AppCompatActivity {
         return false;
     }
 
-    private void sendVerificationEmail() {
+    protected void sendVerificationEmail() {
         firebaseAuth.getCurrentUser()
                 .sendEmailVerification()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -268,7 +266,7 @@ public class LoginActivity extends AppCompatActivity {
         Log.d(TAG, "username: " + email + " password: " + password);
     }
 
-    private void setupCompletedCheck() {
+    protected void setupCompletedCheck() {
         progressDialog.dismiss();
 
         user = FirebaseAuth.getInstance().getCurrentUser();
@@ -280,7 +278,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 try {
-                    if ((boolean) dataSnapshot.getValue())
+                    if ((boolean) dataSnapshot.getValue() && user != null)
                         launchMainActivity();
                     else
                         launchSetupActivity();
@@ -296,12 +294,12 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void launchMainActivity() {
+    protected void launchMainActivity() {
         startActivity(new Intent(LoginActivity.this, MainActivity.class));
         finish();
     }
 
-    private void launchSetupActivity() {
+    protected void launchSetupActivity() {
         startActivity(new Intent(LoginActivity.this, SetupAccountActivity.class));
         finish();
     }
