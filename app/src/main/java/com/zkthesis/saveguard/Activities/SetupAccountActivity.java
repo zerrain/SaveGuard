@@ -39,6 +39,12 @@ public class SetupAccountActivity extends AppCompatActivity {
     EditText fullNameSetupET;
     @BindView(R.id.mobileNoSetupET)
     EditText mobileNoSetupET;
+    @BindView(R.id.emergencyContactNameET)
+    EditText emergencyContactNameET;
+    @BindView(R.id.emergencyContactNumberET)
+    EditText emergencyContactNumberET;
+    @BindView(R.id.emergencyContactRelationshipET)
+    EditText emergencyContactRelationshipET;
     @BindView(R.id.licenceUploadPreviewIV)
     ImageView licenceUploadPreviewIV;
 
@@ -110,22 +116,31 @@ public class SetupAccountActivity extends AppCompatActivity {
     public void onCompleteSetupBtnClicked() {
         String fullName = fullNameSetupET.getText().toString().trim();
         String mobileNO = mobileNoSetupET.getText().toString().trim();
+        String emergencyContactName = emergencyContactNameET.getText().toString().trim();
+        String emergencyContactNumber = emergencyContactNumberET.getText().toString().trim();
+        String emergencyContactRelationship = emergencyContactRelationshipET.getText().toString().trim();
+        String[] strings = {fullName, mobileNO, emergencyContactName, emergencyContactNumber, emergencyContactRelationship};
 
-        if (fullName.isEmpty() || mobileNO.isEmpty() || imageUri == null)
-            Toast.makeText(this, "Please enter all details", Toast.LENGTH_SHORT).show();
-        else {
-            reference.child("Profile").child("fullName").setValue(fullName);
-            reference.child("Profile").child("mobileNO").setValue(mobileNO);
-            reference.child("Profile").child("setupCompleted").setValue(true);
-            reference.child("Profile").child("currentShift").setValue("noshift");
-            uploadLicenceImage();
+        for (String string : strings)
+            if (string.isEmpty()) {
+                Toast.makeText(this, "Please enter all details", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-            Toast.makeText(this, "Setup Complete!", Toast.LENGTH_SHORT).show();
-            progressDialog.dismiss();
+        reference.child("Profile").child("fullName").setValue(fullName);
+        reference.child("Profile").child("mobileNO").setValue(mobileNO);
+        reference.child("Profile").child("emergencyContact").child("name").setValue(emergencyContactName);
+        reference.child("Profile").child("emergencyContact").child("number").setValue(emergencyContactNumber);
+        reference.child("Profile").child("emergencyContact").child("relationship").setValue(emergencyContactRelationship);
+        reference.child("Profile").child("setupCompleted").setValue(true);
+        reference.child("Profile").child("currentShift").setValue("noshift");
+        uploadLicenceImage();
 
-            startActivity(new Intent(SetupAccountActivity.this, MainActivity.class));
-            finish();
-        }
+        Toast.makeText(this, "Setup Complete!", Toast.LENGTH_SHORT).show();
+        progressDialog.dismiss();
+
+        startActivity(new Intent(SetupAccountActivity.this, MainActivity.class));
+        finish();
     }
 
     private void uploadLicenceImage() {

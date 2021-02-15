@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     protected String currentShift;
 
     protected String guardName;
+    protected String guardRole;
     private boolean volUp = false;
     private boolean volDown = false;
 
@@ -81,11 +82,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        userReference.child("fullName").addListenerForSingleValueEvent(new ValueEventListener() {
+        userReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.getValue() != null)
-                    guardName = snapshot.getValue().toString();
+                if (snapshot.child("fullName").getValue() != null) {
+                    guardName = snapshot.child("fullName").getValue().toString();
+                    guardRole = snapshot.child("currentRole").getValue().toString();
+                }
             }
 
             @Override
@@ -173,6 +176,10 @@ public class MainActivity extends AppCompatActivity {
 
     public String getCurrentShift() {
         return currentShift;
+    }
+
+    public String getGuardRole() {
+        return guardRole;
     }
 
     private void alertGuards() {

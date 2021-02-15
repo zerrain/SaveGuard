@@ -6,52 +6,63 @@
     android:orientation="vertical"
     tools:context=".Activities.SetupAccountActivity">
 
-    <ScrollView
+    <EditText
+        android:id="@+id/fullNameSetupET"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none">
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+    <EditText
+        android:id="@+id/mobileNoSetupET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Mobile number"
+        android:inputType="phone"
+        android:layout_marginBottom="20dp"/>
 
-            <EditText
-                android:id="@+id/fullNameSetupET"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Name" />
+    <EditText
+        android:id="@+id/emergencyContactNameET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Emergency Contact Name"
+        android:inputType="textPersonName"/>
 
-            <EditText
-                android:id="@+id/mobileNoSetupET"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="phone"
-                android:hint="Mobile number" />
+    <EditText
+        android:id="@+id/emergencyContactNumberET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Emergency Contact Number"
+        android:inputType="phone"/>
 
-            <Button
-                android:id="@+id/licenceUploadBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Upload security licence" />
+    <EditText
+        android:id="@+id/emergencyContactRelationshipET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Emergency Contact Relationship"
+        android:inputType="textPersonName"/>
 
-            <ImageView
-                android:id="@+id/licenceUploadPreviewIV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true" />
+    <Button
+        android:id="@+id/licenceUploadBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Upload security licence" />
 
-            <Button
-                android:id="@+id/completeSetupBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Complete Setup" />
+    <ImageView
+        android:id="@+id/licenceUploadPreviewIV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true" />
 
-        </LinearLayout>
-
-    </ScrollView>
-
+    <Button
+        android:id="@+id/completeSetupBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Complete Setup" />
 </LinearLayout>

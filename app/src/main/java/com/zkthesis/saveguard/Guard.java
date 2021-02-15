@@ -8,6 +8,8 @@ import java.util.ArrayList;
 public class Guard implements Parcelable {
     private String fullName;
     private String currentRole;
+    private String uID;
+    private String token;
     private ArrayList<Note> notes;
 
     public Guard() {
@@ -16,6 +18,8 @@ public class Guard implements Parcelable {
     protected Guard(Parcel in) {
         fullName = in.readString();
         currentRole = in.readString();
+        uID = in.readString();
+        token = in.readString();
         notes = in.readArrayList(Note.class.getClassLoader());
     }
 
@@ -28,6 +32,8 @@ public class Guard implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(fullName);
         dest.writeString(currentRole);
+        dest.writeString(uID);
+        dest.writeString(token);
         dest.writeList(notes);
     }
 
@@ -41,6 +47,7 @@ public class Guard implements Parcelable {
         public Guard[] newArray(int size) {
             return new Guard[size];
         }
+
     };
 
     public String getFullName() {
@@ -65,6 +72,22 @@ public class Guard implements Parcelable {
 
     public void setNotes(ArrayList<Note> notes) {
         this.notes = notes;
+    }
+
+    public String getuID() {
+        return uID;
+    }
+
+    public void setuID(String uID) {
+        this.uID = uID;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
     @Override

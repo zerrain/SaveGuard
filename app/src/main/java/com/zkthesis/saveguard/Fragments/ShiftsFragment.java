@@ -70,9 +70,9 @@ public class ShiftsFragment extends Fragment {
     protected DatabaseReference userReference;
     private DatabaseReference shiftReference;
     protected ArrayList<String> guardsOnShift;
+    protected ArrayList<String> guardTokens;
     protected ArrayList<Guard> guards;
     protected ArrayList<Guard> guardsSupervisors;
-    protected ArrayList<String> guardTokens;
     protected String token;
     protected int guardCount = 0;
 
@@ -152,6 +152,8 @@ public class ShiftsFragment extends Fragment {
                                                     Guard guardToAdd = new Guard();
                                                     guardToAdd.setFullName(snapshot.child("fullName").getValue().toString());
                                                     guardToAdd.setCurrentRole(snapshot.child("currentRole").getValue().toString());
+                                                    guardToAdd.setuID(guard);
+                                                    guardToAdd.setToken(snapshot.child("token").getValue().toString());
 
                                                     ArrayList<Note> guardNotes = new ArrayList<>();
                                                     for (DataSnapshot dataSnapshot : snapshot.child("Notes").getChildren())
@@ -173,7 +175,7 @@ public class ShiftsFragment extends Fragment {
                                                 if (guardCount == guardsOnShift.size()) {
                                                     guards.addAll(guardsSupervisors);
                                                     Collections.reverse(guards);
-                                                    RecyclerView.Adapter guardsAdapter = new GuardsOnShiftAdapter(guards, getContext());
+                                                    RecyclerView.Adapter guardsAdapter = new GuardsOnShiftAdapter(guards, getContext(), ((MainActivity) getActivity()).getGuardRole());
                                                     guardsOnShiftRecyclerView.setAdapter(guardsAdapter);
                                                     guardsOnShiftSwipeRefreshLayout.setOnRefreshListener(() -> {
                                                         ((MainActivity) getActivity()).switchToShiftsFragment();
